@@ -1,9 +1,22 @@
-# vu-software-containerization
-Vrije Universiteit Amsterdam - Software Containerization 2022
+# VU Software Containerization 2022
 
-To run
+### Docker
 
+Build the images and spin up the containers:
+
+```sh
+$ sudo docker-compose up -d --build
 ```
-sudo docker build -t <DOCKER_USERNAME>/cats-or-dogs <PATH_TO_cats-or-dogs-api/api-server>
-sudo docker run -p 8888:5000 --name cats-or-dogs soumyankarm/cats-or-dogs
+
+Run the migrations and seed the database:
+
+```sh
+$ sudo docker-compose exec server python manage.py recreate_db
+$ sudo docker-compose exec server python manage.py seed_db
 ```
+
+Test it out at:
+
+1. [http://localhost:8080/](http://localhost:8080/)
+1. [http://localhost:5001/books/ping](http://localhost:5001/books/ping)
+1. [http://localhost:5001/books](http://localhost:5001/books)
