@@ -1,11 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minikube-ingress
+  name: books-ingress
+  namespace: default
   annotations:
 spec:
+  tls:
+    - secretName: mybookslist-com-tls
+      hosts:
+        - mtbookslist.com  
   rules:
-  - host: hello.world
+  - host: mybookslist.com
     http:
       paths:
       - path: /

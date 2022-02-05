@@ -10,7 +10,7 @@ RUN npm install
 
 COPY . .
 
-RUN ROOT_API=http://localhost:5001 npm run build
+RUN ROOT_API=http://mybookslist.com/books npm run build
 
 EXPOSE 8080
 
