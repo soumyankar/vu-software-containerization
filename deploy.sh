@@ -36,3 +36,7 @@ echo "Creating the vue deployment and service..."
 
 kubectl create -f ./kubernetes/vue-deployment.yml
 kubectl create -f ./kubernetes/vue-service.yml
+
+echo "Creating the tls-secret"
+
+kubectl apply -f ./kubernetes/tls-secret.yml
