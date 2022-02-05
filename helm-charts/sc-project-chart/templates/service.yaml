@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "sc-project-chart.fullname" . }}
+  labels:
+    {{- include "sc-project-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 8080
+  selector:
+    {{- include "sc-project-chart.selectorLabels" . | nindent 4 }}
