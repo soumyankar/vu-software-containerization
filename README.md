@@ -54,6 +54,9 @@ Run Kubernetes deploy.sh script
 
 `sh deploy.sh`
 
+Add the domain to /etc/hosts to access the UI:
+127.0.0.1 mybookslist.com
+
 Test the app with secure hostname(https/tls certificate)
 
 1. [https://mybookslist.com/](https://mybookslist.com/)
