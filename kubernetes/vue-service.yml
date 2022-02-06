@@ -6,6 +6,7 @@ metadata:
     service: vue
   name: vue
 spec:
+  type: LoadBalancer
   selector:
     app: vue
   ports:

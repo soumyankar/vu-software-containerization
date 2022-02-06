@@ -27,9 +27,8 @@ kubectl create -f ./kubernetes/flask-service.yml
 
 echo "Adding the ingress..."
 
-minikube addons enable ingress
-kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
-kubectl apply -f ./kubernetes/minikube-ingress.yml
+microk8s enable ingress
+kubectl apply -f ./kubernetes/mybookslist-ingress.yml
 
 
 echo "Creating the vue deployment and service..."

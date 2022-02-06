@@ -54,6 +54,10 @@ Run Kubernetes deploy.sh script
 
 `sh deploy.sh`
 
+### ingress
+we have already generated a certificate with openssl
+The yaml file is applied through the script depoly.sh
+
 Add the domain to /etc/hosts to access the UI:
 127.0.0.1 mybookslist.com
 
