@@ -37,7 +37,7 @@ spec:
             secretKeyRef:
               key: password
               name: postgres-credentials
-        image: mjhea0/flask-kubernetes:latest
+        image: sheejan/flask-kubernetes:latest
         imagePullPolicy: Always
         name: flask
         resources: {}
