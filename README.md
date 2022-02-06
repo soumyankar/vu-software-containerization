@@ -16,16 +16,20 @@ This `README.md` file contains all necessary commands required to __deploy__, __
 #### Flask
 First, we begin with the Backend API that has been built using Flask. Follow, the commands down below to deploy the backend API
 
-`sudo docker build -t flaskapi:v1 services/client/`
-`sudo docker tag flaskapi:v1 localhost:32000/flaskapi:v1`
-`sudo docker push localhost:32000/flaskapi:v1`
+```
+sudo docker build -t flaskapi:v1 services/client/
+sudo docker tag flaskapi:v1 localhost:32000/flaskapi:v1
+sudo docker push localhost:32000/flaskapi:v1
+```
 
 #### Vue
 Second, we boot up our front-end image that has been built using Vue.js
 
-`sudo docker build -t frontend:v1 services/server/`
-`sudo docker build tag frontend:v1 localhost:32000/frontend:v1`
-`sudo docker push localhost:32000/frontend:v1`
+```
+sudo docker build -t frontend:v1 services/server/
+sudo docker build tag frontend:v1 localhost:32000/frontend:v1
+sudo docker push localhost:32000/frontend:v1
+```
 
 
 ### Docker
@@ -57,7 +61,7 @@ Run Kubernetes deploy.sh script
 If the script is not working, run the commands int the deploy.sh manually.
 
 
-### ingress
+### Ingress
 we have already generated a certificate with openssl
 The yaml file is applied through the script deploy.sh
 
@@ -70,7 +74,7 @@ Test the app with secure hostname(https/tls certificate)
 1. [https://mybookslist.com/books/ping](https://mybookslist.com/books/ping)
 1. [https://mybookslist.com/books](https://mybookslist.com/books)
 
-### scaling the app
+### Scaling the app
 The deployments can either be added using horizontalpod autoscaler or even manually. The commands are as follows:
 `Kubectl autoscale deployment <deployment-name> --min=3 --max=10 --cpu-percent=60`
 `kubectl scale deployment <deployment-name> --replicas=3`
@@ -136,6 +140,22 @@ Finally we delete the first deployment and we are done. Now every user will use 
 ```sh
 $ kubectl delete deployment flask 
 ```
+
+### Google Cloud Platform
+
+<img width="1439" alt="Screenshot 2022-02-06 at 18 47 59" src="https://user-images.githubusercontent.com/10772786/152694030-bb7beb8a-38a2-4347-b460-286022f63d2d.png">
+Here you see a screenshot of the micro-services hosted and deployed on GCP. To do this, we followed the GKE's personal guide for deployment of Kubernetes applications.   
+First, we created a `cloudbuild.yaml` file to show the deployment files annd the clusters that were used during the initialization on GCP.  
+Second, we created a `deployment.yaml` file. This file is more complicated and tricky to write because we need to show, and define the services. 
+
+Finally, now that we had our config for our application's Services, it is possible to create the services on our cluster.
+Steps:
+1. Enable Kubernetes API on GCP
+2. Create a New Kubernetes cluster
+3. Add a node pool for our micro-services.
+
+Now that GCP is ready to host our micro-services, we can fire it up by:
+`sudo gcloud builds submit --project=vu-software-containerization --config cloudbuild.yaml`
 
 ### Contributors
 
