@@ -56,9 +56,9 @@ Run Kubernetes deploy.sh script
 
 Test the app with secure hostname(https/tls certificate)
 
-[https://mybookslist.com/](https://mybookslist.com/)
-[https://mybookslist.com/books/ping](https://mybookslist.com/books/ping)
-[https://mybookslist.com/books](https://mybookslist.com/books)
+1. [https://mybookslist.com/](https://mybookslist.com/)
+1. [https://mybookslist.com/books/ping](https://mybookslist.com/books/ping)
+1. [https://mybookslist.com/books](https://mybookslist.com/books)
 
 ### Contributors
 
