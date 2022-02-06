@@ -1,0 +1,9 @@
+apiVersion: v2
+name: vu-sc_client-chart
+description: A Helm chart for client inside vu-sc_project
+
+type: application
+
+version: 0.1.0
+
+appVersion: v1

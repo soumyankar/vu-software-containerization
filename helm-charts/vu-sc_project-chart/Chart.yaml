@@ -1,0 +1,17 @@
+apiVersion: v2
+name: vu-sc_project-chart
+description: A Helm chart for vu-sc_project group 21
+
+type: application
+
+version: 0.1.0
+
+dependencies:
+  - name: vu-sc_postgres
+    condition: enabled
+  - name: vu-sc_server
+    condition: enabled
+  - name: vu-sc_client
+    condition: enabled
+
+appVersion: v1
