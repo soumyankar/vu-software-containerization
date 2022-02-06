@@ -8,7 +8,7 @@ spec:
   tls:
     - secretName: mybookslist-com-tls
       hosts:
-        - mtbookslist.com  
+        - mybookslist.com  
   rules:
   - host: mybookslist.com
     http:
