@@ -60,6 +60,38 @@ Test the app with secure hostname(https/tls certificate)
 1. [https://mybookslist.com/books/ping](https://mybookslist.com/books/ping)
 1. [https://mybookslist.com/books](https://mybookslist.com/books)
 
+### Canary Deployment
+
+We should have 5 pods running for our first flask-deployment (v1.0.0). See each pod's version with:
+
+```sh
+$ kubectl get pods --show-labels
+```
+
+Now we can deploy our second version (1 pod) that would be accessed by 1 out of every 6 users with:
+
+```sh
+$ kubectl apply -f flask-deployment-v2.yaml
+```
+
+Let's check again the pods and see if the newly created pod for v2 is running:
+
+```sh
+$ kubectl get pods --show-labels
+```
+
+If v2 works fine, we can scale it to cover v1's replicas with:
+
+```sh
+$ kubectl scale deploy flask-v2 --replicas=5
+```
+
+Finally we delete the first deployment and we are done. Now every user will use v2 of the application.
+
+```sh
+$ kubectl delete deployment flask 
+```
+
 ### Contributors
 
 Team Members:  
