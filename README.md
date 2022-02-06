@@ -54,9 +54,12 @@ Run Kubernetes deploy.sh script
 
 `sh deploy.sh`
 
+If the script is not working, run the commands int the deploy.sh manually.
+
+
 ### ingress
 we have already generated a certificate with openssl
-The yaml file is applied through the script depoly.sh
+The yaml file is applied through the script deploy.sh
 
 Add the domain to /etc/hosts to access the UI:
 127.0.0.1 mybookslist.com
@@ -67,7 +70,7 @@ Test the app with secure hostname(https/tls certificate)
 1. [https://mybookslist.com/books/ping](https://mybookslist.com/books/ping)
 1. [https://mybookslist.com/books](https://mybookslist.com/books)
 
-###scaling the app
+### scaling the app
 The deployments can either be added using horizontalpod autoscaler or even manually. The commands are as follows:
 `Kubectl autoscale deployment <deployment-name> --min=3 --max=10 --cpu-percent=60`
 `kubectl scale deployment <deployment-name> --replicas=3`
