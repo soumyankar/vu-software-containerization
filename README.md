@@ -67,6 +67,13 @@ Test the app with secure hostname(https/tls certificate)
 1. [https://mybookslist.com/books/ping](https://mybookslist.com/books/ping)
 1. [https://mybookslist.com/books](https://mybookslist.com/books)
 
+###scaling the app
+The deployments can either be added using horizontalpod autoscaler or even manually. The commands are as follows:
+`Kubectl autoscale deployment <deployment-name> --min=3 --max=10 --cpu-percent=60`
+`kubectl scale deployment <deployment-name> --replicas=3`
+ 
+ Our Flask-api and vue-frontend have 3 replicas on initial deployment.
+
 ### Upgrade
 
 #### Deployment Rollout
