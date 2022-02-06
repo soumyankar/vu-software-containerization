@@ -63,7 +63,35 @@ Test the app with secure hostname(https/tls certificate)
 1. [https://mybookslist.com/books/ping](https://mybookslist.com/books/ping)
 1. [https://mybookslist.com/books](https://mybookslist.com/books)
 
-### Canary Deployment
+### Upgrade
+
+#### Deployment Rollout
+
+Since every time we change the Deployment's Pod template a deployment rollout is triggered, we are going to change the Docker image of our flask api to simulate this situation.
+
+Apply the `--record` flag to the deployment command so we can later see the rollout history. Then run `rollout status` to see status of the current deployment.
+
+```sh
+$ kubectl apply -f flask-deployment.yaml --record
+$ kubectl rollout status deployment/flask
+```
+
+Now we can change the image of the container to simulate the rollout and check the status again:
+
+```sh
+$ kubectl --record deployment.apps/flask set image deployment.v1.apps/flask flask=jazzdd/alpine-flask
+$ kubectl rollout status deployment/flask
+```
+
+Finally we can check that the new image is being applied to the pods via the pod-hash-label that should be changing from previous pods to the new deployment. To see the rollout history and the changes made in-between use `kubectl rollout history` as:
+
+```sh
+$ kubectl get pods --show-label
+$ kubectl rollout history deployment.v1.apps/flask
+```
+
+
+#### Canary Deployment
 
 We should have 5 pods running for our first flask-deployment (v1.0.0). See each pod's version with:
 
