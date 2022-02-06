@@ -104,7 +104,7 @@ $ kubectl rollout status deployment/flask
 Finally we can check that the new image is being applied to the pods via the pod-hash-label that should be changing from previous pods to the new deployment. To see the rollout history and the changes made in-between use `kubectl rollout history` as:
 
 ```sh
-$ kubectl get pods --show-label
+$ kubectl get pods --show-labels
 $ kubectl rollout history deployment.v1.apps/flask
 ```
 
