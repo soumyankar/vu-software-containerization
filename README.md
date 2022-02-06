@@ -50,6 +50,15 @@ Test it out at:
 1. [http://localhost:5001/books/ping](http://localhost:5001/books/ping)
 1. [http://localhost:5001/books](http://localhost:5001/books)
 
+Run Kubernetes deploy.sh script
+
+`sh deploy.sh`
+
+Test the app with secure hostname(https/tls certificate)
+
+[https://mybookslist.com/](https://mybookslist.com/)
+[https://mybookslist.com/books/ping](https://mybookslist.com/books/ping)
+[https://mybookslist.com/books](https://mybookslist.com/books)
 
 ### Contributors
 

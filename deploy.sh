@@ -40,3 +40,10 @@ kubectl create -f ./kubernetes/vue-service.yml
 echo "Creating the tls-secret"
 
 kubectl apply -f ./kubernetes/tls-secret.yml
+
+echo "creating role and cluster role"
+
+kubectl create -f ./kubernetes/read-only-role.yml
+kubectl apply -f ./kubernetes/read-only-binding.yml
+kubectl create -f ./kubernetes/cluster-role.yml
+kubectl apply -f ./kubernetes/cluster-role-binding.yml
