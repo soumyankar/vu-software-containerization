@@ -141,6 +141,10 @@ Finally we delete the first deployment and we are done. Now every user will use 
 $ kubectl delete deployment flask 
 ```
 
+### Helm
+
+Even though the project has the needed files to run helm, due to an unexpected error with the microk8s registry, Helm was not implemented in this project. The charts are built and the different templates and .yml files are filled with the needed information. This is the reason we use manual deployments, upgrades and uninstallations for our project.
+
 ### Google Cloud Platform
 
 <img width="1439" alt="Screenshot 2022-02-06 at 18 47 59" src="https://user-images.githubusercontent.com/10772786/152694030-bb7beb8a-38a2-4347-b460-286022f63d2d.png">
