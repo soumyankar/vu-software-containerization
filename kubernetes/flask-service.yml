@@ -5,7 +5,6 @@ metadata:
   labels:
     service: flask
 spec:
-  type: LoadBalancer
   selector:
     app: flask
   ports:
