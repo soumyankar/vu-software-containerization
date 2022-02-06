@@ -4,25 +4,25 @@ metadata:
   creationTimestamp: null
   labels:
     name: flask
-  name: flask
+  name: flask-v2
 spec:
   progressDeadlineSeconds: 2147483647
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: flask
-      version: v1.0.0
+      version: v2.0.0
   template:
     metadata:
       creationTimestamp: null
       labels:
         app: flask
-        version: v1.0.0
+        version: v2.0.0
     spec:
       containers:
       - env:
         - name: VERSION
-          value: v1.0.0        
+          value: v2.0.0
         - name: FLASK_ENV
           value: development
         - name: APP_SETTINGS
